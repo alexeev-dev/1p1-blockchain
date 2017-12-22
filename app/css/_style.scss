@@ -1,0 +1,66 @@
+.app {
+	min-width: 320px; width: 1280px;
+	overflow-x: hidden;
+	background: #ffffff;
+
+	& > header {
+		position: relative; z-index: 10;
+	}
+
+	.wr {
+		&-header {
+			padding: 8px 0 13px;
+			background: $white;
+		}
+
+		&-subheader {
+			padding: 14px 0 10px;
+			background: $brand; box-shadow: 0 2px 34px rgba(0, 0, 0, 0.1);
+		}
+
+		&-filter {
+			padding: 35px 0 30px;
+			background: $white;
+		}
+
+		&-main {
+			&-intro {
+				min-height: calc(100vh - 142px - 97px - 81px); padding: 72px 0 9px; display: flex; align-items: center; justify-content: space-between;
+				background: linear-gradient(to top, $brand 0%, $brand 100%), url('../img/intro-bg-1.png') center center no-repeat, url('../img/intro-bg-2.png') center center no-repeat;
+				transition: 0.3s ease-out;
+				&.active {
+					min-height: 380px;
+				}
+			}
+			&-info {
+				padding: 74px 0 63px;
+				background: $gray-bg;
+			}
+		}
+
+		&-transactions {
+			&-intro {
+				padding: 40px 0 71px;
+				background: linear-gradient(to top, $brand 0%, $brand 100%), url('../img/intro-bg-1.png') center center no-repeat, url('../img/intro-bg-2.png') center center no-repeat;
+			}
+			&-info {
+				background: $gray-bg;
+			}
+		}
+
+		&-fund {
+			&-intro {
+				background: linear-gradient(to top, $brand 0%, $brand 100%), url('../img/intro-bg-1.png') center center no-repeat, url('../img/intro-bg-2.png') center center no-repeat;
+			}
+		}
+
+		&-funds {
+			background: $gray-bg;
+		}
+		
+		&-footer {
+			padding: 38px 0 33px;
+			background: $white;
+		}
+	}
+}
