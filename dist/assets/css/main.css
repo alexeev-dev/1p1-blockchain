@@ -2766,6 +2766,19 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
       border-top: solid 5px transparent;
       border-bottom: solid 5px transparent;
       border-right: solid 8px white; }
+  .page-navigation ul {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .page-navigation ul li {
+      margin-right: 30px; }
+      .page-navigation ul li:last-child {
+        margin-right: 0; }
 
 .filter h2 {
   color: black;
@@ -3064,16 +3077,37 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   display: flex; }
   .transactions-info > div {
     width: 50%; }
-    .transactions-info > div h3 {
-      color: black;
-      font-family: "museosans500", sans-serif;
-      font-size: 19px; }
-    .transactions-info > div > p {
-      color: black;
-      font-family: "museosans500", sans-serif;
-      font-size: 36px; }
+    .transactions-info > div:first-child {
+      padding-right: 50px; }
+    .transactions-info > div:last-child {
+      padding-left: 10px;
+      padding-right: 40px; }
+    .transactions-info > div header {
+      padding-left: 74px;
+      margin-bottom: 28px; }
+      .transactions-info > div header h3 {
+        color: black;
+        font-family: "museosans500", sans-serif;
+        font-size: 19px;
+        margin-bottom: 15px; }
+      .transactions-info > div header p {
+        color: black;
+        font-family: "museosans500", sans-serif;
+        font-size: 36px;
+        line-height: 42px;
+        padding-left: 13px;
+        position: relative; }
+        .transactions-info > div header p:before {
+          content: '';
+          display: block;
+          width: 12px;
+          height: 23px;
+          position: absolute;
+          left: -43px;
+          top: 7px; }
     .transactions-info > div > ul > li {
       margin-bottom: 10px;
+      padding: 36px 3px 32px 74px;
       background: white;
       -webkit-box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
       box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
@@ -3086,27 +3120,100 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
       .transactions-info > div > ul > li span.date {
         color: black;
         font-family: "museosans500", sans-serif;
-        font-size: 16px; }
+        font-size: 16px;
+        display: block;
+        margin-bottom: 12px; }
       .transactions-info > div > ul > li > p {
         color: black;
         font-family: "museosans500", sans-serif;
-        font-size: 28px; }
-      .transactions-info > div > ul > li ul li span {
-        color: #4b5769;
-        font-family: "museosans500", sans-serif;
-        font-size: 10px;
-        line-height: 18px;
-        text-transform: uppercase;
-        letter-spacing: 1px; }
-      .transactions-info > div > ul > li ul li p {
-        color: black;
-        font-family: "museosans500", sans-serif;
-        font-size: 16px; }
+        font-size: 28px;
+        line-height: 36px;
+        margin-bottom: 23px;
+        position: relative; }
+        .transactions-info > div > ul > li > p:before {
+          content: '';
+          display: block;
+          width: 5px;
+          height: 20px;
+          position: absolute;
+          left: -36px;
+          top: 6px; }
+      .transactions-info > div > ul > li ul {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-bottom: -21px; }
+        .transactions-info > div > ul > li ul li {
+          width: 50%;
+          margin-bottom: 21px;
+          padding-right: 20px; }
+          .transactions-info > div > ul > li ul li span {
+            color: #4b5769;
+            font-family: "museosans500", sans-serif;
+            font-size: 10px;
+            line-height: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block; }
+          .transactions-info > div > ul > li ul li p {
+            color: black;
+            font-family: "museosans500", sans-serif;
+            font-size: 16px; }
+  .transactions-info .income header p:before {
+    background: #00bcff; }
+  .transactions-info .income header p:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -50px;
+    top: 19px;
+    border-top: solid 20px #00bcff;
+    border-left: solid 13px transparent;
+    border-right: solid 13px transparent; }
+  .transactions-info .income > ul > li > p:before {
+    background: #00bcff; }
+  .transactions-info .income > ul > li > p:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -40px;
+    top: 21px;
+    border-top: solid 10px #00bcff;
+    border-left: solid 6.5px transparent;
+    border-right: solid 6.5px transparent; }
+  .transactions-info .expense header p:before {
+    background: #b068d2; }
+  .transactions-info .expense header p:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -50px;
+    top: -2px;
+    border-bottom: solid 20px #b068d2;
+    border-left: solid 13px transparent;
+    border-right: solid 13px transparent; }
+  .transactions-info .expense > ul > li > p:before {
+    background: #b068d2; }
+  .transactions-info .expense > ul > li > p:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -40px;
+    top: 1px;
+    border-bottom: solid 10px #b068d2;
+    border-left: solid 6.5px transparent;
+    border-right: solid 6.5px transparent; }
 
 .funds h1 {
   color: black;
   font-family: "museosans500", sans-serif;
-  font-size: 26px; }
+  font-size: 26px;
+  line-height: 32px;
+  margin-bottom: 32px; }
 
 .funds ul {
   display: -webkit-box;
@@ -3147,22 +3254,24 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
         max-height: 90px;
         max-width: 170px; }
 
-.fund-intro h1 {
-  color: white;
-  font-family: "museosans500", sans-serif;
-  font-size: 36px; }
+.fund-intro {
+  padding-top: 25px; }
+  .fund-intro h1 {
+    color: white;
+    font-family: "museosans500", sans-serif;
+    font-size: 36px;
+    line-height: 42px; }
+
+.fund-progress > *:last-child {
+  margin-bottom: 0; }
 
 .fund-progress .progress {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center; }
+  padding-right: 178px;
+  margin-bottom: 5px; }
   .fund-progress .progress span.progressbar {
     height: 30px;
+    position: relative;
+    display: block;
     -webkit-border-radius: 5px;
     border-radius: 5px; }
   .fund-progress .progress span.value {
@@ -3171,28 +3280,93 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
     font-size: 16px;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
-    flex-shrink: 0; }
+    flex-shrink: 0;
+    width: 178px;
+    padding-left: 19px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translate(100%, -50%);
+    -ms-transform: translate(100%, -50%);
+    transform: translate(100%, -50%); }
 
 .fund-progress p {
   color: black;
   font-family: "museosans500", sans-serif;
-  font-size: 16px; }
+  font-size: 16px;
+  margin-bottom: 22px; }
 
-.fund-tabs ul li a {
-  color: black;
-  font-family: "museosans500", sans-serif;
-  font-size: 16px; }
+.fund-tabs ul {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .fund-tabs ul li a {
+    color: black;
+    font-family: "museosans500", sans-serif;
+    font-size: 16px;
+    display: block;
+    padding: 18px 25px 16px; }
+    .fund-tabs ul li a.active {
+      background: #f4f7fb; }
 
-.fund-tab table tr th {
-  color: black;
-  font-family: "museosans500", sans-serif;
-  font-size: 14px;
-  text-align: left; }
-
-.fund-tab table tr td {
-  color: black;
-  font-family: "museosans500", sans-serif;
-  font-size: 16px; }
+.fund-tab {
+  padding: 79px 0 30px;
+  display: none;
+  background: #f4f7fb; }
+  .fund-tab.active {
+    display: block; }
+  .fund-tab table {
+    width: 100%;
+    position: relative;
+    background: #ffffff;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); }
+    .fund-tab table tr {
+      height: 80px; }
+      .fund-tab table tr:first-child td, .fund-tab table tr:last-child td {
+        border-bottom: none; }
+      .fund-tab table tr:first-child {
+        height: auto;
+        -webkit-transform: translateY(-webkit-calc(-100% - 6px));
+        -ms-transform: translateY(calc(-100% - 6px));
+        transform: translateY(calc(-100% - 6px)); }
+      .fund-tab table tr:nth-child(2) {
+        height: 60px;
+        -webkit-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+        transform: translateY(-10px); }
+      .fund-tab table tr th {
+        color: black;
+        font-family: "museosans500", sans-serif;
+        font-size: 14px;
+        text-align: left;
+        padding: 0 20px; }
+        .fund-tab table tr th a {
+          color: black;
+          font-family: "museosans500", sans-serif;
+          font-size: 16px;
+          line-height: 20px;
+          display: inline-block;
+          margin-right: 32px; }
+          .fund-tab table tr th a:last-child {
+            margin-right: 0; }
+      .fund-tab table tr td {
+        color: black;
+        font-family: "museosans500", sans-serif;
+        font-size: 16px;
+        padding-left: 20px;
+        vertical-align: middle;
+        border-bottom: solid 1px #d8d8d8; }
+        .fund-tab table tr td:first-child {
+          padding-right: 30px; }
+        .fund-tab table tr td:last-child {
+          -webkit-flex-shrink: 0;
+          -ms-flex-negative: 0;
+          flex-shrink: 0;
+          width: 17.9%; }
 
 .app {
   min-width: 320px;
@@ -3211,11 +3385,11 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
     -webkit-box-shadow: 0 2px 34px rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 34px rgba(0, 0, 0, 0.1); }
   .app .wr-filter {
-    padding: 35px 0 30px;
+    padding: 35px 0 59px;
     background: white; }
   .app .wr-main-intro {
-    min-height: -webkit-calc(100vh - 142px - 97px - 81px);
-    min-height: calc(100vh - 142px - 97px - 81px);
+    min-height: -webkit-calc(100vh - 142px - 97px);
+    min-height: calc(100vh - 142px - 97px);
     padding: 72px 0 9px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -3235,7 +3409,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
     -webkit-transition: 0.3s ease-out;
     transition: 0.3s ease-out; }
     .app .wr-main-intro.active {
-      min-height: 380px; }
+      min-height: 460px; }
   .app .wr-main-info {
     padding: 74px 0 63px;
     background: #f4f7fb; }
@@ -3245,12 +3419,21 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
     background: -webkit-linear-gradient(bottom, #4489ff 0%, #4489ff 100%), url("../img/intro-bg-1.png") center center no-repeat, url("../img/intro-bg-2.png") center center no-repeat;
     background: linear-gradient(to top, #4489ff 0%, #4489ff 100%), url("../img/intro-bg-1.png") center center no-repeat, url("../img/intro-bg-2.png") center center no-repeat; }
   .app .wr-transactions-info {
+    padding: 42px 0 10px;
     background: #f4f7fb; }
   .app .wr-fund-intro {
+    padding: 40px 0 32px;
     background: -webkit-gradient(linear, left bottom, left top, from(#4489ff), to(#4489ff)), url("../img/intro-bg-1.png") center center no-repeat, url("../img/intro-bg-2.png") center center no-repeat;
     background: -webkit-linear-gradient(bottom, #4489ff 0%, #4489ff 100%), url("../img/intro-bg-1.png") center center no-repeat, url("../img/intro-bg-2.png") center center no-repeat;
     background: linear-gradient(to top, #4489ff 0%, #4489ff 100%), url("../img/intro-bg-1.png") center center no-repeat, url("../img/intro-bg-2.png") center center no-repeat; }
+  .app .wr-fund-info {
+    padding: 28px 0 10px;
+    background: white; }
+  .app .wr-fund-tabs {
+    padding: 21px 0 0;
+    background: white; }
   .app .wr-funds {
+    padding: 67px 0 51px;
     background: #f4f7fb; }
   .app .wr-footer {
     padding: 38px 0 33px;

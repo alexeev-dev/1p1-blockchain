@@ -19,17 +19,17 @@
 		}
 
 		&-filter {
-			padding: 35px 0 30px;
+			padding: 35px 0 59px;
 			background: $white;
 		}
 
 		&-main {
 			&-intro {
-				min-height: calc(100vh - 142px - 97px - 81px); padding: 72px 0 9px; display: flex; align-items: center; justify-content: space-between;
+				min-height: calc(100vh - 142px - 97px); padding: 72px 0 9px; display: flex; align-items: center; justify-content: space-between;
 				background: linear-gradient(to top, $brand 0%, $brand 100%), url('../img/intro-bg-1.png') center center no-repeat, url('../img/intro-bg-2.png') center center no-repeat;
 				transition: 0.3s ease-out;
 				&.active {
-					min-height: 380px;
+					min-height: 460px;
 				}
 			}
 			&-info {
@@ -44,17 +44,28 @@
 				background: linear-gradient(to top, $brand 0%, $brand 100%), url('../img/intro-bg-1.png') center center no-repeat, url('../img/intro-bg-2.png') center center no-repeat;
 			}
 			&-info {
+				padding: 42px 0 10px;
 				background: $gray-bg;
 			}
 		}
 
 		&-fund {
 			&-intro {
+				padding: 40px 0 32px;
 				background: linear-gradient(to top, $brand 0%, $brand 100%), url('../img/intro-bg-1.png') center center no-repeat, url('../img/intro-bg-2.png') center center no-repeat;
+			}
+			&-info {
+				padding: 28px 0 10px;
+				background: $white;
+			}
+			&-tabs {
+				padding: 21px 0 0;
+				background: $white;
 			}
 		}
 
 		&-funds {
+			padding: 67px 0 51px;
 			background: $gray-bg;
 		}
 		
