@@ -44,7 +44,13 @@
 				<div class="filter">
 					<ul>
 						<li>
-							<div class="date-picker"></div>
+							<div class="date-picker">
+								<span class="mob">От</span>
+								<input id="from" type="text" name="from">
+								<span>-</span>
+								<span class="mob">До</span>
+								<input id="to" type="text" name="to">
+							</div>
 						</li>
 					</ul>
 				</div>
@@ -72,13 +78,13 @@
 
 		<div class="wr-fund-tabs">
 			<div class="container">
-				<div class="fund-tabs">
+				<div class="fund-tabs js-tabs">
 					<ul>
 						<li>
-							<a class="active" href="#">Поступление</a>
+							<a class="active" href="#income">Поступление</a>
 						</li>
 						<li>
-							<a href="#">Расход</a>
+							<a href="#expense">Расход</a>
 						</li>
 					</ul>
 				</div>
@@ -118,7 +124,7 @@
 				<div class="container">
 					<table>
 						<tr>
-							<th><a href="#">Проекты</a><a href="#">Программы</a></th>
+							<th><a class="active" href="#">Проекты</a><a href="#">Программы</a></th>
 							<th>Сумма расходов</th>
 						</tr>
 						<tr>

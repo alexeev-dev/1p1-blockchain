@@ -268,11 +268,43 @@
 		}
 	}
 	& > ul {
-		display: none; position: absolute; left: 0; bottom: 0; transform: transalteY(100%);
+		display: none; position: absolute; left: -11px; bottom: -14px; transform: translateY(100%); z-index: 10;
+		background: $white; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); border-radius: 4px;
+		overflow: hidden;
+		&.active {
+			display: block;
+		}
 		& > li {
+			width: 100%;
 			a {
 				color: $black; font-family: $ms-500; font-size: 15px; font-weight: 300;
+				padding: 19px 18px 21px; display: block;
+				transition: 0.3s ease-out;
+				&:hover {
+					background: #f4fcff;
+				}
 			}
+		}
+	}
+}
+
+.date-picker{
+	span {
+		color: $black; font-family: $ms-500; font-size: 16px;
+		@include respond-to(sm) {
+			display: none;
+		}
+		&.mob {
+			display: none;
+		}
+	}
+	input {
+		color: $black; font-family: $ms-500; font-size: 15px;
+		padding: 0 10px 15px;
+		background: transparent url('../img/select-arrow.png') right 9px top 8px no-repeat; border: none; border-bottom: solid 1px #ebebeb;
+		appearance: none;
+		&:focus {
+			outline: none;
 		}
 	}
 }
@@ -593,6 +625,7 @@
 					display: block; padding: 18px 25px 16px;
 					&.active {
 						background: $gray-bg;
+						pointer-events: none;
 					}
 				}
 			}
@@ -627,8 +660,16 @@
 					a {
 						color: $black; font-family: $ms-500; font-size: 16px; line-height: 20px;
 						display: inline-block; margin-right: 32px;
+						opacity: 0.3;
 						&:last-child {
 							margin-right: 0;
+						}
+						&:hover {
+							opacity: 0.7;
+						}
+						&.active {
+							opacity: 1;
+							pointer-events: none;
 						}
 					}
 				}

@@ -2883,16 +2883,57 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   .select > ul {
     display: none;
     position: absolute;
-    left: 0;
-    bottom: 0;
-    -webkit-transform: transalteY(100%);
-    -ms-transform: transalteY(100%);
-    transform: transalteY(100%); }
-    .select > ul > li a {
-      color: black;
-      font-family: "museosans500", sans-serif;
-      font-size: 15px;
-      font-weight: 300; }
+    left: -11px;
+    bottom: -14px;
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    z-index: 10;
+    background: white;
+    -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    overflow: hidden; }
+    .select > ul.active {
+      display: block; }
+    .select > ul > li {
+      width: 100%; }
+      .select > ul > li a {
+        color: black;
+        font-family: "museosans500", sans-serif;
+        font-size: 15px;
+        font-weight: 300;
+        padding: 19px 18px 21px;
+        display: block;
+        -webkit-transition: 0.3s ease-out;
+        transition: 0.3s ease-out; }
+        .select > ul > li a:hover {
+          background: #f4fcff; }
+
+.date-picker span {
+  color: black;
+  font-family: "museosans500", sans-serif;
+  font-size: 16px; }
+  @media (max-width: 767px) {
+    .date-picker span {
+      display: none; } }
+  .date-picker span.mob {
+    display: none; }
+
+.date-picker input {
+  color: black;
+  font-family: "museosans500", sans-serif;
+  font-size: 15px;
+  padding: 0 10px 15px;
+  background: transparent url("../img/select-arrow.png") right 9px top 8px no-repeat;
+  border: none;
+  border-bottom: solid 1px #ebebeb;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+  .date-picker input:focus {
+    outline: none; }
 
 .main-intro {
   padding-bottom: 42px; }
@@ -3308,7 +3349,8 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
     display: block;
     padding: 18px 25px 16px; }
     .fund-tabs ul li a.active {
-      background: #f4f7fb; }
+      background: #f4f7fb;
+      pointer-events: none; }
 
 .fund-tab {
   padding: 79px 0 30px;
@@ -3350,9 +3392,15 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
           font-size: 16px;
           line-height: 20px;
           display: inline-block;
-          margin-right: 32px; }
+          margin-right: 32px;
+          opacity: 0.3; }
           .fund-tab table tr th a:last-child {
             margin-right: 0; }
+          .fund-tab table tr th a:hover {
+            opacity: 0.7; }
+          .fund-tab table tr th a.active {
+            opacity: 1;
+            pointer-events: none; }
       .fund-tab table tr td {
         color: black;
         font-family: "museosans500", sans-serif;
@@ -3370,7 +3418,6 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 
 .app {
   min-width: 320px;
-  width: 1280px;
   overflow-x: hidden;
   background: #ffffff; }
   .app > header {
