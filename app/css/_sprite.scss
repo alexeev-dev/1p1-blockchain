@@ -1,0 +1,46 @@
+.icon {
+    font-size: 10px;
+    &:before {
+      content:' ';
+      vertical-align:middle;
+      display: inline-block;
+      background-image: url("../img/sprite.svg");
+      background-repeat: no-repeat;
+      background-size: 2.4em 3.7em;
+
+      .no-svg & {
+        background-image: url("../img/sprite.png");
+      }
+    }
+}
+
+
+
+
+.icon.chart {
+  &:before {
+      background-position: 0em 0em;
+      width: 2em;
+      height: 1.9em;
+    }
+  }
+
+  @mixin icon-chart(){
+    @extend .chart;
+  }
+
+
+.icon.eye {
+  &:before {
+      background-position: 0em -1.9em;
+      width: 2.4em;
+      height: 1.8em;
+    }
+  }
+
+  @mixin icon-eye(){
+    @extend .eye;
+  }
+
+
+

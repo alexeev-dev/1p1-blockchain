@@ -2,7 +2,7 @@ var gulp = require('gulp'),
 	browserSync = require('browser-sync'),
 	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
-	spritesmith = require('gulp.spritesmith'),
+	svgSprite = require('gulp-svg-sprites'),
 	concat = require('gulp-concat'),
 	uncss = require('gulp-uncss'),
 	cssmin = require('gulp-cssmin'),
@@ -63,26 +63,16 @@ gulp.task('js:main', function () {
 	.pipe(browserSync.reload({stream:true}));
 });
 
-// sprite
+// SVG Task
 gulp.task('sprite', function () {
-	var spriteData = gulp.src('app/img/icons/*.png').pipe(spritesmith({
-		imgName: 'sprite.png',
-		cssName: 'sprite.css',
-		imgPath: '../img/sprite.png'
-	}));
-
-	// sprite image
-	var imgStream = spriteData.img
-	.pipe(buffer())
-	.pipe(imagemin())
-	.pipe(gulp.dest('dist/assets/img'));
-
-	// sprite css
-	var cssStream = spriteData.css
-	.pipe(gulp.dest('app/css'));
-
-	return merge(imgStream, cssStream)
-	.pipe(browserSync.reload({stream:true}));
+	return gulp.src('app/img/icons/**/*.svg')
+	.pipe(svgSprite({
+		cssFile: "../../app/css/_sprite.scss",
+		preview: false,
+		templates: { scss: true },
+		svg: { sprite: "img/sprite.svg" }
+	}))
+	.pipe(gulp.dest('dist/assets'));
 });
 
 // html builder
@@ -96,6 +86,6 @@ gulp.task('html:build', function () {
 gulp.task('watch', ['html:build', 'js:libs', 'js:main', 'sprite', 'browser-sync','sass', /*'css:min'*/], function () {
 	gulp.watch('app/css/*.scss', ['sass'/*, 'css:min'*/]);
 	gulp.watch('app/**/*.html', ['html:build']);
-	gulp.watch('app/img/icons/*.png', ['sprite', 'sass']);
+	gulp.watch('app/img/icons/*.svg', ['sprite', 'sass']);
 	gulp.watch('app/js/*.js', ['js:main']);
 });

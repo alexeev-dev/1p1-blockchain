@@ -26,7 +26,7 @@
 		&-main {
 			&-intro {
 				min-height: calc(100vh - 142px - 97px); padding: 72px 0 9px; display: flex; align-items: center; justify-content: space-between;
-				background: linear-gradient(to top, $brand 0%, $brand 100%), url('../img/intro-bg-1.png') center center no-repeat, url('../img/intro-bg-2.png') center center no-repeat;
+				background: $brand url('../img/line-chart.svg') 50% 81% no-repeat/cover;
 				transition: 0.3s ease-out;
 				&.active {
 					min-height: 460px;

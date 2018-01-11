@@ -2425,35 +2425,27 @@ fieldset {
   margin: 0;
   padding: 0; }
 
-/*
-Icon classes can be used entirely standalone. They are named after their original file names.
-
-Example usage in HTML:
-
-`display: block` sprite:
-<div class="icon-home"></div>
-
-To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
-
-// CSS
 .icon {
-  display: inline-block;
-}
+  font-size: 10px; }
+  .icon:before {
+    content: ' ';
+    vertical-align: middle;
+    display: inline-block;
+    background-image: url("../img/sprite.svg");
+    background-repeat: no-repeat;
+    background-size: 2.4em 3.7em; }
+    .no-svg .icon:before {
+      background-image: url("../img/sprite.png"); }
 
-// HTML
-<i class="icon icon-home"></i>
-*/
-.icon-chart {
-  background-image: url(../img/sprite.png);
-  background-position: 0px -16px;
-  width: 18px;
-  height: 17px; }
+.icon.chart:before {
+  background-position: 0em 0em;
+  width: 2em;
+  height: 1.9em; }
 
-.icon-eye {
-  background-image: url(../img/sprite.png);
-  background-position: 0px 0px;
-  width: 22px;
-  height: 16px; }
+.icon.eye:before {
+  background-position: 0em -1.9em;
+  width: 2.4em;
+  height: 1.8em; }
 
 @font-face {
   font-family: "museosans500";
@@ -3185,8 +3177,10 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
         margin-bottom: 20px;
         width: 100%; } }
     .main-info > ul > li:last-child {
-      margin-right: 0;
-      margin-bottom: 10px; }
+      margin-right: 0; }
+      @media (max-width: 767px) {
+        .main-info > ul > li:last-child {
+          margin-bottom: 10px; } }
 
 .main-info table {
   width: 100%;
@@ -3843,9 +3837,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    background: -webkit-gradient(linear, left bottom, left top, from(#4489ff), to(#4489ff)), url("../img/intro-bg-1.png") center center no-repeat, url("../img/intro-bg-2.png") center center no-repeat;
-    background: -webkit-linear-gradient(bottom, #4489ff 0%, #4489ff 100%), url("../img/intro-bg-1.png") center center no-repeat, url("../img/intro-bg-2.png") center center no-repeat;
-    background: linear-gradient(to top, #4489ff 0%, #4489ff 100%), url("../img/intro-bg-1.png") center center no-repeat, url("../img/intro-bg-2.png") center center no-repeat;
+    background: #4489ff url("../img/line-chart.svg") 50% 81% no-repeat/cover;
     -webkit-transition: 0.3s ease-out;
     transition: 0.3s ease-out; }
     .app .wr-main-intro.active {
