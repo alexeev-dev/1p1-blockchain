@@ -26,7 +26,7 @@
 		&-main {
 			&-intro {
 				min-height: calc(100vh - 142px - 97px); padding: 72px 0 9px; display: flex; align-items: center; justify-content: space-between;
-				background: $brand url('../img/line-chart.svg') 50% 81% no-repeat/cover;
+				background: $brand url('../img/line-chart.svg') 50% 81% no-repeat; background-size: 100% auto;
 				transition: 0.3s ease-out;
 				&.active {
 					min-height: 460px;
@@ -41,18 +41,21 @@
 		&-transactions {
 			&-intro {
 				padding: 40px 0 71px;
-				background: linear-gradient(to top, $brand 0%, $brand 100%), url('../img/intro-bg-1.png') center center no-repeat, url('../img/intro-bg-2.png') center center no-repeat;
+				background: $brand url('../img/line-chart.svg') 50% 0% no-repeat; background-size: 100% auto;
 			}
 			&-info {
 				padding: 42px 0 40px;
 				background: $gray-bg;
+				@include respond-to(sm) {
+					margin-top: 54px;
+				}
 			}
 		}
 
 		&-fund {
 			&-intro {
 				padding: 40px 0 32px;
-				background: linear-gradient(to top, $brand 0%, $brand 100%), url('../img/intro-bg-1.png') center center no-repeat, url('../img/intro-bg-2.png') center center no-repeat;
+				background: $brand url('../img/line-chart.svg') 50% 20% no-repeat; background-size: 100% auto;
 			}
 			&-info {
 				padding: 28px 0 10px;

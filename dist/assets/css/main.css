@@ -2459,6 +2459,18 @@ fieldset {
     font-family: "museosans500";
     src: url("../fonts/museosans500/museosans500.svg#museosans500") format("svg"); } }
 
+@font-face {
+  font-family: "museosans300";
+  src: url("../fonts/museosans300/museosans300.eot");
+  src: url("../fonts/museosans300/museosans300.eot") format("embedded-opentype"), url("../fonts/museosans300/museosans300.woff2") format("woff2"), url("../fonts/museosans300/museosans300.woff") format("woff"), url("../fonts/museosans300/museosans300.ttf") format("truetype"), url("../fonts/museosans300/museosans300.svg#museosans300") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: "museosans300";
+    src: url("../fonts/museosans300/museosans300.svg#museosans300") format("svg"); } }
+
 /*********************************/
 /********** Typography ***********/
 /*********************************/
@@ -2581,15 +2593,15 @@ fieldset {
         .header nav ul li:last-child {
           margin-right: 0; }
         .header nav ul li a {
-          color: #4489ff;
-          font-family: "museosans500", sans-serif;
+          color: black;
+          font-family: "museosans300", sans-serif;
           font-size: 15px;
           line-height: 20px;
           opacity: 0.7;
           -webkit-transition: 0.3s ease-out;
           transition: 0.3s ease-out; }
           .header nav ul li a:hover {
-            color: black; }
+            color: #4489ff; }
     .header nav a.user {
       display: block;
       width: 32px;
@@ -2654,7 +2666,7 @@ fieldset {
       flex-direction: column; } }
   .subheader > p {
     color: white;
-    font-family: "museosans500", sans-serif;
+    font-family: "museosans300", sans-serif;
     font-size: 18px;
     line-height: 20px;
     -webkit-flex-shrink: 0;
@@ -2734,12 +2746,14 @@ fieldset {
             margin-right: 0; } }
       .subheader ul li p {
         color: white;
-        font-family: "museosans500", sans-serif;
+        font-family: "museosans300", sans-serif;
         font-size: 14px;
         line-height: 16px; }
       @media (max-width: 1199px) {
         .subheader ul li br {
           display: none; } }
+  .subheader a {
+    font-family: "museosans300", sans-serif; }
 
 .footer {
   display: -webkit-box;
@@ -2820,6 +2834,8 @@ fieldset {
               line-height: 18px; } }
           .footer nav ul li a:last-child {
             margin-right: 0; }
+          .footer nav ul li a:hover {
+            text-decoration: underline; }
 
 .page-navigation {
   display: -webkit-box;
@@ -2853,11 +2869,13 @@ fieldset {
       padding: 0 15px; } }
   .page-navigation a {
     color: white;
-    font-family: "museosans500", sans-serif;
+    font-family: "museosans300", sans-serif;
     font-size: 16px; }
     @media (max-width: 480px) {
       .page-navigation a {
         font-size: 14px; } }
+    .page-navigation a:hover {
+      text-decoration: underline; }
   .page-navigation > a {
     padding-left: 16px;
     position: relative; }
@@ -3101,7 +3119,7 @@ fieldset {
         line-height: 36px; } }
   .main-intro form input {
     color: white;
-    font-family: "museosans500", sans-serif;
+    font-family: "museosans300", sans-serif;
     font-size: 25px;
     line-height: 26px;
     padding-bottom: 14px;
@@ -3129,7 +3147,7 @@ fieldset {
       opacity: 0.5; }
   .main-intro form p {
     color: white;
-    font-family: "museosans500", sans-serif;
+    font-family: "museosans300", sans-serif;
     font-size: 14px;
     margin-bottom: 54px;
     opacity: 0.5; }
@@ -3157,7 +3175,7 @@ fieldset {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-bottom: 60px; }
+  margin-bottom: 40px; }
   @media (max-width: 767px) {
     .main-info > ul {
       -webkit-box-orient: vertical;
@@ -3195,36 +3213,22 @@ fieldset {
       display: block;
       overflow-x: auto; } }
   .main-info table tr {
-    height: 90px; }
-    .main-info table tr:first-child td, .main-info table tr:last-child td {
+    min-height: 90px; }
+    .main-info table tr:hover {
+      background: #f3f3f3; }
+    .main-info table tr:last-child td {
       border-bottom: none; }
     .main-info table tr:first-child {
-      height: auto;
-      -webkit-transform: translateY(-webkit-calc(-100% - 6px));
-      -ms-transform: translateY(calc(-100% - 6px));
-      transform: translateY(calc(-100% - 6px)); }
-      @media (max-width: 991px) {
-        .main-info table tr:first-child {
-          -webkit-transform: none;
-          -ms-transform: none;
-          transform: none; } }
-    .main-info table tr:nth-child(2) {
-      height: 70px;
-      -webkit-transform: translateY(-10px);
-      -ms-transform: translateY(-10px);
-      transform: translateY(-10px); }
-      @media (max-width: 991px) {
-        .main-info table tr:nth-child(2) {
-          height: 90px;
-          -webkit-transform: none;
-          -ms-transform: none;
-          transform: none; } }
+      height: auto; }
+      .main-info table tr:first-child:hover {
+        background: none; }
     .main-info table tr th {
       color: #a0a0a0;
       font-family: "museosans500", sans-serif;
       font-size: 14px;
       text-align: left;
-      padding: 0 20px; }
+      padding: 10px 20px;
+      border-bottom: solid 1px #d8d8d8; }
       @media (max-width: 1199px) {
         .main-info table tr th {
           padding: 0 0 0 10px; } }
@@ -3236,8 +3240,9 @@ fieldset {
       color: black;
       font-family: "museosans500", sans-serif;
       font-size: 16px;
-      padding: 20px 0 20px 20px;
+      padding: 25px 0 25px 20px;
       vertical-align: middle;
+      position: relative;
       border-bottom: solid 1px #d8d8d8; }
       @media (max-width: 1199px) {
         .main-info table tr td {
@@ -3264,6 +3269,58 @@ fieldset {
         @media (max-width: 991px) {
           .main-info table tr td span {
             font-size: 18px; } }
+        .main-info table tr td span a:hover {
+          color: black; }
+      .main-info table tr td a {
+        color: inherit;
+        font-size: inherit;
+        font-family: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+        padding-left: 20px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center; }
+        @media (max-width: 1199px) {
+          .main-info table tr td a {
+            padding-left: 10px; } }
+        .main-info table tr td a:hover {
+          color: #4489ff; }
+
+.transactions-tabs-mobile {
+  display: none;
+  margin-top: -42px;
+  position: relative;
+  top: -54px; }
+  @media (max-width: 767px) {
+    .transactions-tabs-mobile {
+      display: block; } }
+  .transactions-tabs-mobile ul {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+    .transactions-tabs-mobile ul li.active a {
+      background: #f4f7fb;
+      pointer-events: none; }
+    .transactions-tabs-mobile ul li a {
+      color: black;
+      font-family: "museosans500", sans-serif;
+      font-size: 16px;
+      display: block;
+      padding: 18px 25px 16px; }
+      .transactions-tabs-mobile ul li a:hover {
+        text-decoration: underline; }
 
 .transactions-intro {
   padding: 44px 50px 58px;
@@ -3510,7 +3567,7 @@ fieldset {
               padding-right: 0; } }
           .transactions-info > div > ul > li ul li span {
             color: #4b5769;
-            font-family: "museosans500", sans-serif;
+            font-family: "museosans300", sans-serif;
             font-size: 10px;
             line-height: 18px;
             text-transform: uppercase;
@@ -3576,6 +3633,12 @@ fieldset {
     @media (max-width: 767px) {
       .transactions-info .expense > ul > li > p:after {
         left: -29px; } }
+  @media (max-width: 767px) {
+    .transactions-info .income, .transactions-info .expense {
+      display: none; } }
+  @media (max-width: 767px) {
+    .transactions-info .income.active, .transactions-info .expense.active {
+      display: block; } }
 
 .funds h1 {
   color: black;
@@ -3619,6 +3682,9 @@ fieldset {
     @media (max-width: 480px) {
       .funds ul li:last-child {
         margin-bottom: 0; } }
+    .funds ul li a:hover figure {
+      -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); }
     .funds ul li figure {
       width: 100%;
       height: 180px;
@@ -3636,7 +3702,11 @@ fieldset {
       align-items: center;
       background: white;
       -webkit-border-radius: 4px;
-      border-radius: 4px; }
+      border-radius: 4px;
+      -webkit-transition: -webkit-box-shadow 0.3s ease-out;
+      transition: -webkit-box-shadow 0.3s ease-out;
+      transition: box-shadow 0.3s ease-out;
+      transition: box-shadow 0.3s ease-out, -webkit-box-shadow 0.3s ease-out; }
       .funds ul li figure img {
         max-height: 90px;
         max-width: 170px; }
@@ -3714,6 +3784,8 @@ fieldset {
     .fund-tabs ul li a.active {
       background: #f4f7fb;
       pointer-events: none; }
+    .fund-tabs ul li a:hover {
+      text-decoration: underline; }
 
 .fund-tab {
   padding: 79px 0 30px;
@@ -3733,75 +3805,81 @@ fieldset {
       .fund-tab table {
         display: block;
         overflow-x: auto; } }
-    .fund-tab table tr {
-      height: 80px; }
-      .fund-tab table tr:first-child td, .fund-tab table tr:last-child td {
-        border-bottom: none; }
-      .fund-tab table tr:first-child {
-        height: auto;
-        -webkit-transform: translateY(-webkit-calc(-100% - 6px));
-        -ms-transform: translateY(calc(-100% - 6px));
-        transform: translateY(calc(-100% - 6px)); }
-        @media (max-width: 991px) {
-          .fund-tab table tr:first-child {
-            -webkit-transform: none;
-            -ms-transform: none;
-            transform: none; } }
-      .fund-tab table tr:nth-child(2) {
-        height: 60px;
-        -webkit-transform: translateY(-10px);
-        -ms-transform: translateY(-10px);
-        transform: translateY(-10px); }
-        @media (max-width: 991px) {
-          .fund-tab table tr:nth-child(2) {
-            height: 80px;
-            -webkit-transform: none;
-            -ms-transform: none;
-            transform: none; } }
-      .fund-tab table tr th {
-        color: black;
-        font-family: "museosans500", sans-serif;
-        font-size: 14px;
-        text-align: left;
-        padding: 0 20px; }
-        @media (max-width: 991px) {
-          .fund-tab table tr th {
-            padding: 10px;
-            border-bottom: solid 1px #d8d8d8; } }
-        .fund-tab table tr th a {
-          color: black;
-          font-family: "museosans500", sans-serif;
-          font-size: 16px;
-          line-height: 20px;
-          display: inline-block;
-          margin-right: 32px;
-          opacity: 0.3; }
-          .fund-tab table tr th a:last-child {
-            margin-right: 0; }
-          .fund-tab table tr th a:hover {
-            opacity: 0.7; }
-          .fund-tab table tr th a.active {
-            opacity: 1;
-            pointer-events: none; }
-      .fund-tab table tr td {
+    .fund-tab table tr:hover {
+      background: #f3f3f3; }
+    .fund-tab table tr:last-child td {
+      border-bottom: none; }
+    .fund-tab table tr:first-child:hover {
+      background: none; }
+    .fund-tab table tr th {
+      color: black;
+      font-family: "museosans500", sans-serif;
+      font-size: 14px;
+      text-align: left;
+      padding: 10px 20px;
+      border-bottom: solid 1px #d8d8d8; }
+      @media (max-width: 991px) {
+        .fund-tab table tr th {
+          padding: 10px;
+          border-bottom: solid 1px #d8d8d8; } }
+      .fund-tab table tr th a {
         color: black;
         font-family: "museosans500", sans-serif;
         font-size: 16px;
-        padding: 20px 0 20px 20px;
-        vertical-align: middle;
-        border-bottom: solid 1px #d8d8d8; }
-        @media (max-width: 991px) {
-          .fund-tab table tr td {
-            padding: 10px 0 10px 10px; } }
-        .fund-tab table tr td:first-child {
-          padding-right: 30px;
-          min-width: 780px; }
-        .fund-tab table tr td:last-child {
-          -webkit-flex-shrink: 0;
-          -ms-flex-negative: 0;
-          flex-shrink: 0;
-          width: 17.9%;
-          min-width: 170px; }
+        line-height: 20px;
+        display: inline-block;
+        margin-right: 32px;
+        opacity: 0.3; }
+        .fund-tab table tr th a:last-child {
+          margin-right: 0; }
+        .fund-tab table tr th a:hover {
+          opacity: 0.7; }
+        .fund-tab table tr th a.active {
+          opacity: 1;
+          pointer-events: none; }
+    .fund-tab table tr td {
+      color: black;
+      font-family: "museosans500", sans-serif;
+      font-size: 16px;
+      padding: 25px 0 25px 20px;
+      vertical-align: middle;
+      position: relative;
+      border-bottom: solid 1px #d8d8d8; }
+      @media (max-width: 991px) {
+        .fund-tab table tr td {
+          padding: 10px 0 10px 10px; } }
+      .fund-tab table tr td:first-child {
+        padding-right: 30px;
+        min-width: 780px; }
+      .fund-tab table tr td:last-child {
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        width: 17.9%;
+        min-width: 170px; }
+      .fund-tab table tr td a {
+        font-size: inherit;
+        font-family: inherit;
+        letter-spacing: inherit;
+        position: absolute;
+        padding-left: 20px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center; }
+        @media (max-width: 1199px) {
+          .fund-tab table tr td a {
+            padding-left: 10px; } }
+        .fund-tab table tr td a:hover {
+          color: #4489ff; }
 
 .app {
   min-width: 320px;
@@ -3837,7 +3915,8 @@ fieldset {
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    background: #4489ff url("../img/line-chart.svg") 50% 81% no-repeat/cover;
+    background: #4489ff url("../img/line-chart.svg") 50% 81% no-repeat;
+    background-size: 100% auto;
     -webkit-transition: 0.3s ease-out;
     transition: 0.3s ease-out; }
     .app .wr-main-intro.active {
@@ -3847,17 +3926,18 @@ fieldset {
     background: #f4f7fb; }
   .app .wr-transactions-intro {
     padding: 40px 0 71px;
-    background: -webkit-gradient(linear, left bottom, left top, from(#4489ff), to(#4489ff)), url("../img/intro-bg-1.png") center center no-repeat, url("../img/intro-bg-2.png") center center no-repeat;
-    background: -webkit-linear-gradient(bottom, #4489ff 0%, #4489ff 100%), url("../img/intro-bg-1.png") center center no-repeat, url("../img/intro-bg-2.png") center center no-repeat;
-    background: linear-gradient(to top, #4489ff 0%, #4489ff 100%), url("../img/intro-bg-1.png") center center no-repeat, url("../img/intro-bg-2.png") center center no-repeat; }
+    background: #4489ff url("../img/line-chart.svg") 50% 0% no-repeat;
+    background-size: 100% auto; }
   .app .wr-transactions-info {
     padding: 42px 0 40px;
     background: #f4f7fb; }
+    @media (max-width: 767px) {
+      .app .wr-transactions-info {
+        margin-top: 54px; } }
   .app .wr-fund-intro {
     padding: 40px 0 32px;
-    background: -webkit-gradient(linear, left bottom, left top, from(#4489ff), to(#4489ff)), url("../img/intro-bg-1.png") center center no-repeat, url("../img/intro-bg-2.png") center center no-repeat;
-    background: -webkit-linear-gradient(bottom, #4489ff 0%, #4489ff 100%), url("../img/intro-bg-1.png") center center no-repeat, url("../img/intro-bg-2.png") center center no-repeat;
-    background: linear-gradient(to top, #4489ff 0%, #4489ff 100%), url("../img/intro-bg-1.png") center center no-repeat, url("../img/intro-bg-2.png") center center no-repeat; }
+    background: #4489ff url("../img/line-chart.svg") 50% 20% no-repeat;
+    background-size: 100% auto; }
   .app .wr-fund-info {
     padding: 28px 0 10px;
     background: white; }

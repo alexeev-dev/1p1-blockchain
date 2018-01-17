@@ -9,6 +9,17 @@ $(document).ready(function() {
 		$(tab).addClass('active');
 	});
 
+	// Табы на странице транзакций на мобильной версии
+	$('.js-transaction-tabs a').click(function(e) {
+		e.preventDefault();
+
+		var transactionTab = $(this).attr('href');
+		$('.js-transaction-tabs li.active').removeClass('active');
+		$(this).parent().addClass('active');
+		$('.transaction-tab').removeClass('active');
+		$('.transaction-tab' + transactionTab).addClass('active');
+	});
+
 	// Выпадающие списки
 	$('.js-select > a').click(function(e) {
 		e.preventDefault();

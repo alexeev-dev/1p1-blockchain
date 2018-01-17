@@ -81,11 +81,11 @@
 					margin-right: 0;
 				}
 				a {
-					color: $brand; font-family: $ms-500; font-size: 15px; line-height: 20px;
+					color: $black; font-family: $ms-300; font-size: 15px; line-height: 20px;
 					opacity: 0.7;
 					transition: 0.3s ease-out;
 					&:hover {
-						color: $black;
+						color: $brand;
 					}
 				}
 			}
@@ -123,7 +123,7 @@
 		flex-direction: column;
 	}
 	& > p {
-		color: $white; font-family: $ms-500; font-size: 18px; line-height: 20px;
+		color: $white; font-family: $ms-300; font-size: 18px; line-height: 20px;
 		flex-shrink: 0;
 		@include respond-to(lg) {
 			text-align: center;
@@ -166,7 +166,7 @@
 				}
 			}
 			p {
-				color: $white; font-family: $ms-500; font-size: 14px; line-height: 16px;
+				color: $white; font-family: $ms-300; font-size: 14px; line-height: 16px;
 			}
 			br {
 				@include respond-to(lg) {
@@ -176,7 +176,7 @@
 		}
 	}
 	a {
-		
+		font-family: $ms-300;
 	}
 }
 
@@ -218,6 +218,10 @@
 					&:last-child {
 						margin-right: 0;
 					}
+
+					&:hover {
+						text-decoration: underline;
+					}
 				}
 			}
 		}
@@ -233,9 +237,12 @@
 		padding: 0 15px;
 	}
 	a {
-		color: $white; font-family: $ms-500; font-size: 16px;
+		color: $white; font-family: $ms-300; font-size: 16px;
 		@include respond-to(xs) {
 			font-size: 14px;
+		}
+		&:hover {
+			text-decoration: underline;
 		}
 	}
 	& > a {
@@ -420,7 +427,7 @@
 		}
 		form {
 			input {
-				color: $white; font-family: $ms-500; font-size: 25px; line-height: 26px;
+				color: $white; font-family: $ms-300; font-size: 25px; line-height: 26px;
 				padding-bottom: 14px; margin-bottom: 10px;
 				background: transparent; border: none; border-bottom: solid 2px $white; max-width: 580px; width: 100%;
 				@include respond-to(xs) {
@@ -433,7 +440,7 @@
 				&:-ms-input-placeholder {color: $white;opacity: 0.5;}
 			}
 			p {
-				color: $white; font-family: $ms-500; font-size: 14px;
+				color: $white; font-family: $ms-300; font-size: 14px;
 				margin-bottom: 54px;
 				opacity: 0.5;
 			}
@@ -454,7 +461,7 @@
 			}
 		}
 		& > ul {
-			display: flex; align-items: center; margin-bottom: 60px;
+			display: flex; align-items: center; margin-bottom: 40px;
 			@include respond-to(sm) {
 				flex-direction: column; align-items: flex-start;
 			}
@@ -478,28 +485,25 @@
 				display: block; overflow-x: auto;
 			}
 			tr {
-				height: 90px;
-				&:first-child, &:last-child {
+				min-height: 90px;
+				&:hover {
+					background: #f3f3f3;
+				}
+				&:last-child {
 					td {
 						border-bottom: none;
 					}
 				}
 				&:first-child {
 					height: auto;
-					transform: translateY(calc(-100% - 6px));
-					@include respond-to(md) {
-						transform: none;
-					}
-				}
-				&:nth-child(2) {
-					height: 70px; transform: translateY(-10px);
-					@include respond-to(md) {
-						height: 90px; transform: none;
+					&:hover {
+						background: none;
 					}
 				}
 				th {
 					color: $gray-text; font-family: $ms-500; font-size: 14px; text-align: left;
-					padding: 0 20px;
+					padding: 10px 20px;
+					border-bottom: solid 1px #d8d8d8;
 					@include respond-to(lg) {
 						padding: 0 0 0 10px;
 					}
@@ -510,7 +514,7 @@
 				}
 				td {
 					color: $black; font-family: $ms-500; font-size: 16px;
-					padding: 20px 0 20px 20px; vertical-align: middle;
+					padding: 25px 0 25px 20px; vertical-align: middle; position: relative;
 					border-bottom: solid 1px #d8d8d8;
 					@include respond-to(lg) {
 						padding: 10px 0 10px 10px;
@@ -535,6 +539,21 @@
 						@include respond-to(md) {
 							font-size: 18px;
 						}
+						a {
+							&:hover {
+								color: $black;
+							}
+						}
+					}
+					a {
+						color: inherit; font-size: inherit; font-family: inherit; line-height: inherit; letter-spacing: inherit;
+						padding-left: 20px; position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: flex; align-items: center;
+						@include respond-to(lg) {
+							padding-left: 10px;
+						}
+						&:hover {
+							color: $brand;
+						}
 					}
 				}
 			}
@@ -544,6 +563,32 @@
 
 // Transaction Page
 .transactions {
+	&-tabs {
+		&-mobile {
+			display: none; margin-top: -42px; position: relative; top: -54px;
+			@include respond-to(sm) {
+				display: block;
+			}
+			ul {
+				display: flex;
+				li {
+					&.active {
+						a {
+							background: $gray-bg;
+							pointer-events: none;
+						}
+					}
+					a {
+						color: $black; font-family: $ms-500; font-size: 16px;
+						display: block; padding: 18px 25px 16px;
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+	}
 	&-intro {
 		padding: 44px 50px 58px;
 		background: $white; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
@@ -700,7 +745,7 @@
 								width: 100%; padding-right: 0;
 							}
 							span {
-								color: #4b5769; font-family: $ms-500; font-size: 10px; line-height: 18px; text-transform: uppercase; letter-spacing: 1px;
+								color: #4b5769; font-family: $ms-300; font-size: 10px; line-height: 18px; text-transform: uppercase; letter-spacing: 1px;
 								display: block;
 							}
 							p {
@@ -779,6 +824,17 @@
 				}
 			}
 		}
+
+		.income, .expense {
+			@include respond-to(sm) {
+				display: none;
+			}
+			&.active {
+				@include respond-to(sm) {
+					display: block;
+				}
+			}
+		}
 	}
 
 }
@@ -810,9 +866,17 @@
 					margin-bottom: 0;
 				}
 			}
+			a {
+				&:hover {
+					figure {
+						box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+					}
+				}
+			}
 			figure {
 				width: 100%; height: 180px; display: flex; justify-content: center; align-items: center;
 				background: $white; border-radius: 4px;
+				transition: box-shadow 0.3s ease-out;
 				img {
 					max-height: 90px; max-width: 170px;
 				}
@@ -874,6 +938,9 @@
 						background: $gray-bg;
 						pointer-events: none;
 					}
+					&:hover {
+						text-decoration: underline;
+					}
 				}
 			}
 		}
@@ -891,28 +958,23 @@
 				display: block; overflow-x: auto;
 			}
 			tr {
-				height: 80px;
-				&:first-child, &:last-child {
+				&:hover {
+					background: #f3f3f3;
+				}
+				&:last-child {
 					td {
 						border-bottom: none;
 					}
 				}
 				&:first-child {
-					height: auto;
-					transform: translateY(calc(-100% - 6px));
-					@include respond-to(md) {
-						transform: none;
-					}
-				}
-				&:nth-child(2) {
-					height: 60px; transform: translateY(-10px);
-					@include respond-to(md) {
-						height: 80px; transform: none;
+					&:hover {
+						background: none;
 					}
 				}
 				th {
 					color: $black; font-family: $ms-500; font-size: 14px; text-align: left;
-					padding: 0 20px;
+					padding: 10px 20px;
+					border-bottom: solid 1px #d8d8d8;
 					@include respond-to(md) {
 						padding: 10px;
 						border-bottom: solid 1px #d8d8d8;
@@ -935,7 +997,7 @@
 				}
 				td {
 					color: $black; font-family: $ms-500; font-size: 16px;
-					padding: 20px 0 20px 20px; vertical-align: middle;
+					padding: 25px 0 25px 20px; vertical-align: middle; position: relative;
 					border-bottom: solid 1px #d8d8d8;
 					@include respond-to(md) {
 						padding: 10px 0 10px 10px;
@@ -945,6 +1007,16 @@
 					}
 					&:last-child {
 						flex-shrink: 0; width: 17.9%; min-width: 170px;
+					}
+					a {
+						font-size: inherit; font-family: inherit; letter-spacing: inherit;
+						position: absolute; padding-left: 20px; left: 0; top: 0; width: 100%; height: 100%; display: flex; align-items: center;
+						@include respond-to(lg) {
+							padding-left: 10px;
+						}
+						&:hover {
+							color: $brand;
+						}
 					}
 				}
 			}

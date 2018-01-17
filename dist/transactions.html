@@ -47,7 +47,7 @@
 			<div class="wr-header">
 				<div class="container">
 					<div class="header">
-						<a href="#" class="logo"><img src="assets/img/logo.svg"><span>Blockchain</span></a>
+						<a href="#" class="logo"><img src="assets/img/logo.svg"></a>
 						<nav>
 							<ul>
 								<li><a href="#">Проверить пожертвование</a></li>
@@ -155,8 +155,14 @@
 		</div>
 		<div class="wr-transactions-info">
 			<div class="container">
+				<div class="transactions-tabs-mobile">
+					<ul class="js-transaction-tabs">
+						<li class="active"><a href=".income">Поступления</a></li>
+						<li><a href=".expense">Расход</a></li>
+					</ul>
+				</div>
 				<div class="transactions-info">
-					<div class="income">
+					<div class="transaction-tab income active">
 						<header>
 							<h3>Поступления за период</h3>
 							<p>10 145.00 ₽</p>
@@ -218,7 +224,7 @@
 							</li>
 						</ul>
 					</div>
-					<div class="expense">
+					<div class="transaction-tab expense">
 						<header>
 							<h3>Расходов за период</h3>
 							<p>9000.00 ₽</p>
