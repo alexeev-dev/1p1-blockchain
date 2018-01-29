@@ -45,20 +45,19 @@
 	}
 }
 
+.on-load {
+	overflow: hidden;
+}
+
 
 /*********************************/
 /*********** Modules *************/
 /*********************************/
 
 .header {
-	display: flex; justify-content: space-between; align-items: center;
+	display: flex; justify-content: space-between; align-items: center; height: 63px;
 	a.logo {
 		display: flex; align-items: center;
-		img {
-			@include respond-to(sm) {
-				width: 60px;
-			}
-		}
 		span {
 			color: $brand; font-family: $ms-500; font-size: 30px; line-height: 38px;
 			padding-top: 11px; margin-left: 12px;
@@ -68,24 +67,46 @@
 			}
 		}
 	}
+	div {
+		height: 100%;
+	}
 	nav {
-		display: flex; align-items: center; padding-top: 10px;
+		display: flex; align-items: center; height: 100%;
 		ul {
-			display: flex;
+			display: flex; height: 100%;
 			@include respond-to(sm) {
 				display: none;
 			}
 			li {
-				margin-right: 43px;
+				margin-right: 43px; height: 100%; display: flex; align-items: center;
 				&:last-child {
 					margin-right: 0;
 				}
+				&.current-menu {
+					position: relative;
+					bottom: none;
+					&:after {
+						content: '';
+						display: block; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px;
+						background: $brand;
+					}
+				}
 				a {
 					color: $black; font-family: $ms-300; font-size: 15px; line-height: 20px;
+					display: flex; align-items: center; height: 100%;
 					opacity: 0.7;
 					transition: 0.3s ease-out;
 					&:hover {
 						color: $brand;
+					}
+				}
+				a.btn {
+					color: $brand; font-family: $ms-500; font-size: 14px;
+					height: auto; display: inline-block;
+					background: #ffffff;
+					&:hover {
+						color: #ffffff;
+						background: $brand;
 					}
 				}
 			}
@@ -100,18 +121,35 @@
 			}
 		}
 		a.burger {
-			display: block; width: 25px; height: 25px; position: relative; margin-left: 32px;
+			display: none; width: 25px; height: 25px; position: relative; margin-left: 32px;
+			@include respond-to(sm) {
+				display: block;
+			}
+			&.active {
+				span {
+					&:first-child, &:last-child {
+						top: 12px; width: 0;
+					}
+					&:nth-child(2) {
+						transform: translate(-50%,-50%) rotate(45deg);
+					}
+					&:nth-child(3) {
+						transform: translate(-50%,-50%) rotate(-45deg);
+					}
+				}
+			}
 			span {
-				display: block; width: 19px; height: 2px; position: absolute; left: 50%; transform: translateX(-50%);
+				display: block; width: 19px; height: 2px; position: absolute; left: 50%; transform: translate(-50%,-50%);
 				background: #b2b2b2;
+				transition: 0.3s ease-out;
 				&:first-child {
-					top: 4px;
+					top: 5px;
 				}
 				&:nth-child(2), &:nth-child(3) {
-					top: 11px;
+					top: 12px;
 				}
 				&:last-child {
-					top: 18px;
+					top: 19px;
 				}
 			}
 		}
@@ -180,6 +218,24 @@
 	}
 }
 
+// menu mobile
+.menu-mobile {
+	position: relative; height: 100%; width: 100%;
+	nav {
+		max-height: 100%; padding-top: 10px;
+		overflow-y: auto;
+		ul {
+			li {
+				border-bottom: solid 1px #f3f3f3;
+				a {
+					color: $black; font-size: 16px; font-family: $ms-500; line-height: 22px;
+					display: block;padding: 10px 15px;
+				}
+			}
+		}
+	}
+}
+
 .footer {
 	display: flex; justify-content: space-between; align-items: center;
 	@include respond-to(sm) {
@@ -229,7 +285,7 @@
 }
 
 .page-navigation {
-	display: flex; align-items: center; justify-content: space-between; padding-left: 48px; padding-right: 6px; margin-bottom: 18px;
+	display: flex; align-items: center; justify-content: space-between; padding-right: 6px; margin-bottom: 18px;
 	@include respond-to(lg) {
 		flex-direction: column; align-items: flex-start;
 	}
@@ -378,6 +434,9 @@
 }
 
 .date-picker{
+	@include respond-to(xs) {
+		display: flex; flex-wrap: wrap;
+	}
 	& > * {
 		&:last-child {
 			@include respond-to(xs) {
@@ -393,7 +452,7 @@
 		&.mob {
 			display: none;
 			@include respond-to(xs) {
-				display: block; margin-bottom: 5px;
+				display: block; margin-bottom: 5px; width: 40px;
 			}
 		}
 	}
@@ -460,6 +519,11 @@
 				font-size: 24px; line-height: 28px;
 			}
 		}
+
+		& > p {
+			color: $black; font-family: $ms-300; font-size: 16px; line-height: 22px;
+			margin-bottom: 15px;
+		}
 		& > ul {
 			display: flex; align-items: center; margin-bottom: 40px;
 			@include respond-to(sm) {
@@ -474,6 +538,48 @@
 					margin-right: 0; 
 					@include respond-to(sm) {
 						margin-bottom: 10px;
+					}
+				}
+			}
+		}
+
+		& > ol {
+			list-style:    none;
+			counter-reset: li;
+			li {
+				color: $black; font-family: $ms-300; font-size: 16px; line-height: 22px; text-indent: 20px;
+				margin-bottom: 20px;
+				span, p {
+					color: inherit; font-size: inherit; font-family: inherit; line-height: inherit; letter-spacing: inherit;
+				}
+				span {
+					text-indent: 0;
+				}
+				a {
+					color: $brand; font-size: inherit; font-family: inherit; line-height: inherit; letter-spacing: inherit; text-decoration: underline;
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
+			& > li {
+				&:before {
+					counter-increment: li;
+					content: counters(li, ".") ". ";
+				}
+
+				ol, ul {
+					padding-left: 20px; margin-top: 10px;
+					li {
+						margin-bottom: 10px;
+					}
+				}
+
+				ul {
+					li {
+						&:before {
+							content: '- ';
+						}
 					}
 				}
 			}
@@ -524,9 +630,17 @@
 					}
 					&:nth-child(2) {
 						width: 27.11864%; min-width: 258px;
+						padding: 0;
+						a {
+							padding: 25px 0 25px 20px;
+						}
 					}
 					&:nth-child(3) {
 						width: 27.9661%; min-width: 266px;
+						padding: 0;
+						a {
+							padding: 25px 0 25px 20px;
+						}
 					}
 					&:nth-child(4) {
 						width: 16.94915%; min-width: 161px;
@@ -547,7 +661,7 @@
 					}
 					a {
 						color: inherit; font-size: inherit; font-family: inherit; line-height: inherit; letter-spacing: inherit;
-						padding-left: 20px; position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: flex; align-items: center;
+						width: 100%; height: 100%; display: flex; align-items: center;
 						@include respond-to(lg) {
 							padding-left: 10px;
 						}
@@ -557,6 +671,9 @@
 					}
 				}
 			}
+		}
+		.totalSum {
+			color: $black;  font-family: $ms-500; font-size: 16px; line-height: 22px;
 		}
 	}
 }
@@ -573,12 +690,12 @@
 				display: flex;
 				li {
 					&.active {
-						a {
+						span {
 							background: $gray-bg;
 							pointer-events: none;
 						}
 					}
-					a {
+					span {
 						color: $black; font-family: $ms-500; font-size: 16px;
 						display: block; padding: 18px 25px 16px;
 						&:hover {
@@ -601,6 +718,16 @@
 				color: $black; font-family: $ms-500; font-size: 26px; line-height: 34px;
 				@include respond-to(sm) {
 					font-size: 20px; line-height: 26px;
+				}
+			}
+			p {
+				color: $brand; font-family: $ms-500; font-size: 16px; line-height: 18px; letter-spacing: 0.05px;
+				margin-bottom: 13px;
+				a {
+					color: inherit; font-size: inherit; font-family: inherit; line-height: inherit; letter-spacing: inherit;
+					&:hover {
+						text-decoration: underline;
+					}
 				}
 			}
 		}
@@ -647,10 +774,16 @@
 				}
 			}
 			& > p {
-				color: $black; font-family: $ms-500; font-size: 14px; line-height: 20px; letter-spacing: 0.03px;
-				width: 100%; padding-top: 11px; padding-right: 20px;
+				color: #89a1b3; font-family: $ms-500; font-size: 14px; line-height: 20px; letter-spacing: 0.03px;
+				width: 100%; padding-right: 20px;
 				@include respond-to(sm) {
 					padding-top: 0; padding-right: 0;
+				}
+				a {
+					color: $brand; text-decoration: underline;
+					&:hover {
+						text-decoration: none;
+					}
 				}
 			}
 		}
@@ -692,14 +825,14 @@
 				}
 				p {
 					color: $black; font-family: $ms-500; font-size: 36px; line-height: 42px;
-					padding-left: 13px; position: relative;
+					position: relative;
 					@include respond-to(sm) {
 						font-size: 30px; line-height: 36px;
 						padding-left: 0;
 					}
 					&:before {
 						content: '';
-						display: block; width: 12px; height: 23px; position: absolute; left: -43px; top: 7px;
+						display: block; width: 12px; height: 23px; position: absolute; left: -41px; top: 7px;
 						@include respond-to(sm) {
 							left: -30px;
 						}
@@ -731,7 +864,7 @@
 						}
 						&:before {
 							content: '';
-							display: block; width: 5px; height: 20px; position: absolute; left: -36px; top: 6px;
+							display: block; width: 5px; height: 20px; position: absolute; left: -33px; top: 6px;
 							@include respond-to(sm) {
 								left: -25px;
 							}
@@ -764,7 +897,7 @@
 					}
 					&:after {
 						content: '';
-						display: block; position: absolute; left: -50px; top: 19px;
+						display: block; position: absolute; left: -48px; top: 19px;
 						border-top: solid 20px #00bcff; border-left: solid 13px transparent; border-right: solid 13px transparent;
 						@include respond-to(sm) {
 							left: -37px;
@@ -780,7 +913,7 @@
 						}
 						&:after {
 							content: '';
-							display: block; position: absolute; left: -40px; top: 21px;
+							display: block; position: absolute; left: -37px; top: 21px;
 							border-top: solid 10px #00bcff; border-left: solid 6.5px transparent; border-right: solid 6.5px transparent;
 							@include respond-to(sm) {
 								left: -29px;
@@ -798,7 +931,7 @@
 					}
 					&:after {
 						content: '';
-						display: block; position: absolute; left: -50px; top: -2px;
+						display: block; position: absolute; left: -48px; top: -2px;
 						border-bottom: solid 20px #b068d2; border-left: solid 13px transparent; border-right: solid 13px transparent;
 						@include respond-to(sm) {
 							left: -37px;
@@ -814,7 +947,7 @@
 						}
 						&:after {
 							content: '';
-							display: block; position: absolute; left: -40px; top: 1px;
+							display: block; position: absolute; left: -37px; top: 1px;
 							border-bottom: solid 10px #b068d2; border-left: solid 6.5px transparent; border-right: solid 6.5px transparent;
 							@include respond-to(sm) {
 								left: -29px;
@@ -889,10 +1022,22 @@
 .fund {
 	&-intro {
 		padding-top: 25px;
+		& > * {
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
 		h1 {
 			color: $white; font-family: $ms-500; font-size: 36px; line-height: 42px;
+			margin-bottom: 10px;
 			@include respond-to(sm) {
 				font-size: 30px; line-height: 36px;
+			}
+		}
+		p {
+			color: $white; font-family: $ms-500; font-size: 18px; line-height: 25px;
+			@include respond-to(sm) {
+				font-size: 16px; line-height: 22px;
 			}
 		}
 	}
@@ -955,20 +1100,21 @@
 			width: 100%; position: relative;
 			background: #ffffff; border-radius: 4px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 			@include respond-to(md) {
-				display: block; overflow-x: auto;
+				overflow-x: auto;
 			}
 			tr {
+				width: 100%;
 				&:hover {
 					background: #f3f3f3;
-				}
-				&:last-child {
-					td {
-						border-bottom: none;
-					}
 				}
 				&:first-child {
 					&:hover {
 						background: none;
+					}
+				}
+				&:last-child {
+					td {
+						border-bottom: none;
 					}
 				}
 				th {
@@ -979,38 +1125,86 @@
 						padding: 10px;
 						border-bottom: solid 1px #d8d8d8;
 					}
+					&:last-child {
+						text-align: right;
+					}
+					ul {
+						display: flex;
+						@include respond-to(xs) {
+							flex-direction: column;
+						}
+						li {
+							margin-right: 32px;
+							@include respond-to(xs) {
+								margin-right: 0; margin-bottom: 10px;
+							}
+							&:last-child {
+								margin-right: 0;
+								@include respond-to(xs) {
+									margin-bottom: 0;
+								}
+							}
+						}
+					}
 					a {
 						color: $black; font-family: $ms-500; font-size: 16px; line-height: 20px;
-						display: inline-block; margin-right: 32px;
-						opacity: 0.3;
+						display: inline-block; position: relative;
+						@include respond-to(xs) {
+							margin-right: 0;
+						}
 						&:last-child {
 							margin-right: 0;
 						}
 						&:hover {
-							opacity: 0.7;
+							color: $brand;
 						}
 						&.active {
-							opacity: 1;
 							pointer-events: none;
+							&:after {
+								content: '';
+								display: block; width: 100%; height: 3px; position: absolute; left: 0; bottom: -5px;
+								background: $brand;
+								@include respond-to(xs) {
+									bottom: -3px;
+								}
+							}
 						}
 					}
 				}
 				td {
 					color: $black; font-family: $ms-500; font-size: 16px;
-					padding: 25px 0 25px 20px; vertical-align: middle; position: relative;
+					vertical-align: middle; position: relative;
 					border-bottom: solid 1px #d8d8d8;
-					@include respond-to(md) {
-						padding: 10px 0 10px 10px;
+					@include respond-to(sm) {
+						font-size: 14px;
 					}
 					&:first-child {
-						padding-right: 30px; min-width: 780px;
+						@include respond-to(md) {
+							width: 70%;
+						}
+						@include respond-to(sm) {
+							width: 60%;
+						}
+						@include respond-to(xs) {
+							width: 50%;
+						}
 					}
 					&:last-child {
-						flex-shrink: 0; width: 17.9%; min-width: 170px;
+						text-align: right;
+						flex-shrink: 0; width: 17.9%; padding: 25px 20px 25px;
+						@include respond-to(md) {
+							width: 30%; padding: 10px;
+						}
+						@include respond-to(sm) {
+							width: 40%;
+						}
+						@include respond-to(xs) {
+							width: 50%;
+						}
 					}
 					a {
-						font-size: inherit; font-family: inherit; letter-spacing: inherit;
-						position: absolute; padding-left: 20px; left: 0; top: 0; width: 100%; height: 100%; display: flex; align-items: center;
+						color: inherit; font-size: inherit; font-family: inherit; letter-spacing: inherit;
+						padding: 25px 10px 25px 20px; width: 100%; display: block;
 						@include respond-to(lg) {
 							padding-left: 10px;
 						}
@@ -1020,6 +1214,19 @@
 					}
 				}
 			}
+		}
+	}
+}
+
+.vdp-datepicker {
+	display: inline-block;
+	@include respond-to(xs) {
+		width: calc(100% - 40px);
+	}
+
+	&__calendar {
+		@include respond-to(xs) {
+			right: 0;
 		}
 	}
 }

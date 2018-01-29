@@ -56,7 +56,7 @@
 							<a href="#" class="user">
 								<img src="assets/img/user.png">
 							</a>
-							<a href="#" class="burger">
+							<a href="#" class="burger js-burger">
 								<span></span>
 								<span></span>
 								<span></span>
@@ -89,6 +89,21 @@
 				</div>
 			</div>
 		</header>
+		
+		<div class="wr-menu-mobile">
+			<div class="menu-mobile">
+				<a href="#" class="close">
+					<span></span>
+					<span></span>
+				</a>
+				<nav>
+					<ul>
+						<li><a href="#">Проверить пожертвование</a></li>
+						<li><a href="#">Фонды</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
 
 		<div class="wr-fund-intro">
 			<div class="container">
@@ -115,17 +130,13 @@
 		<div class="wr-filter">
 			<div class="container">
 				<div class="filter">
-					<ul>
-						<li>
-							<div class="date-picker">
-								<span class="mob">От</span>
-								<input id="from" type="text" name="from">
-								<span>-</span>
-								<span class="mob">До</span>
-								<input id="to" type="text" name="to">
-							</div>
-						</li>
-					</ul>
+					<div class="date-picker">
+						<span class="mob">От</span>
+						<input id="from" type="text" name="from">
+						<span>-</span>
+						<span class="mob">До</span>
+						<input id="to" type="text" name="to">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -171,23 +182,31 @@
 							<th>Сумма поступлений</th>
 						</tr>
 						<tr>
-							<td>Реабилитационный курс программы системного восстановления России</td>
+							<td><a href="#">Реабилитационный курс программы системного восстановления России</a></td>
 							<td>12 000.00 ₽</td>
 						</tr>
 						<tr>
-							<td>Реабилитационный курс программы системного восстановления России</td>
+							<td><a href="#">Реабилитационный курс программы системного восстановления России</a></td>
 							<td>12 000.00 ₽</td>
 						</tr>
 						<tr>
-							<td>Реабилитационный курс программы системного восстановления России</td>
+							<td><a href="#">Реабилитационный курс программы системного восстановления России</a></td>
 							<td>12 000.00 ₽</td>
 						</tr>
 						<tr>
-							<td>Реабилитационный курс программы системного восстановления России</td>
+							<td><a href="#">Реабилитационный курс программы системного восстановления России</a></td>
 							<td>12 000.00 ₽</td>
 						</tr>
 						<tr>
-							<td>Реабилитационный курс программы системного восстановления России</td>
+							<td><a href="#">Реабилитационный курс программы системного восстановления России</a></td>
+							<td>12 000.00 ₽</td>
+						</tr>
+						<tr>
+							<td><a href="#">Реабилитационный курс программы системного восстановления России</a></td>
+							<td>12 000.00 ₽</td>
+						</tr>
+						<tr>
+							<td><a href="#">Реабилитационный курс программы системного восстановления России</a></td>
 							<td>12 000.00 ₽</td>
 						</tr>
 					</table>
@@ -197,7 +216,16 @@
 				<div class="container">
 					<table>
 						<tr>
-							<th><a class="active" href="#">Проекты</a><a href="#">Программы</a></th>
+							<th>
+								<ul>
+									<li>
+										<a class="active" href="#">Проекты</a>
+									</li>
+									<li>
+										<a href="#">Программы</a>
+									</li>
+								</ul>
+							</th>
 							<th>Сумма расходов</th>
 						</tr>
 						<tr>

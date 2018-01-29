@@ -2529,6 +2529,9 @@ fieldset {
       width: 100%;
       padding: 0 15px; } }
 
+.on-load {
+  overflow: hidden; }
+
 /*********************************/
 /*********** Modules *************/
 /*********************************/
@@ -2544,7 +2547,8 @@ fieldset {
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
-  align-items: center; }
+  align-items: center;
+  height: 63px; }
   .header a.logo {
     display: -webkit-box;
     display: -webkit-flex;
@@ -2554,9 +2558,6 @@ fieldset {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center; }
-    @media (max-width: 767px) {
-      .header a.logo img {
-        width: 60px; } }
     .header a.logo span {
       color: #4489ff;
       font-family: "museosans500", sans-serif;
@@ -2570,6 +2571,8 @@ fieldset {
           line-height: 26px;
           margin-left: 5px;
           padding-top: 7px; } }
+  .header div {
+    height: 100%; }
   .header nav {
     display: -webkit-box;
     display: -webkit-flex;
@@ -2579,29 +2582,70 @@ fieldset {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    padding-top: 10px; }
+    height: 100%; }
     .header nav ul {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
-      display: flex; }
+      display: flex;
+      height: 100%; }
       @media (max-width: 767px) {
         .header nav ul {
           display: none; } }
       .header nav ul li {
-        margin-right: 43px; }
+        margin-right: 43px;
+        height: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center; }
         .header nav ul li:last-child {
           margin-right: 0; }
+        .header nav ul li.current-menu {
+          position: relative;
+          bottom: none; }
+          .header nav ul li.current-menu:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #4489ff; }
         .header nav ul li a {
           color: black;
           font-family: "museosans300", sans-serif;
           font-size: 15px;
           line-height: 20px;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+          -ms-flex-align: center;
+          align-items: center;
+          height: 100%;
           opacity: 0.7;
           -webkit-transition: 0.3s ease-out;
           transition: 0.3s ease-out; }
           .header nav ul li a:hover {
             color: #4489ff; }
+        .header nav ul li a.btn, .header nav ul li a.btn-white {
+          color: #4489ff;
+          font-family: "museosans500", sans-serif;
+          font-size: 14px;
+          height: auto;
+          display: inline-block;
+          background: #ffffff; }
+          .header nav ul li a.btn:hover, .header nav ul li a.btn-white:hover {
+            color: #ffffff;
+            background: #4489ff; }
     .header nav a.user {
       display: block;
       width: 32px;
@@ -2622,27 +2666,43 @@ fieldset {
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%); }
     .header nav a.burger {
-      display: block;
+      display: none;
       width: 25px;
       height: 25px;
       position: relative;
       margin-left: 32px; }
+      @media (max-width: 767px) {
+        .header nav a.burger {
+          display: block; } }
+      .header nav a.burger.active span:first-child, .header nav a.burger.active span:last-child {
+        top: 12px;
+        width: 0; }
+      .header nav a.burger.active span:nth-child(2) {
+        -webkit-transform: translate(-50%, -50%) rotate(45deg);
+        -ms-transform: translate(-50%, -50%) rotate(45deg);
+        transform: translate(-50%, -50%) rotate(45deg); }
+      .header nav a.burger.active span:nth-child(3) {
+        -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+        -ms-transform: translate(-50%, -50%) rotate(-45deg);
+        transform: translate(-50%, -50%) rotate(-45deg); }
       .header nav a.burger span {
         display: block;
         width: 19px;
         height: 2px;
         position: absolute;
         left: 50%;
-        -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        transform: translateX(-50%);
-        background: #b2b2b2; }
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        background: #b2b2b2;
+        -webkit-transition: 0.3s ease-out;
+        transition: 0.3s ease-out; }
         .header nav a.burger span:first-child {
-          top: 4px; }
+          top: 5px; }
         .header nav a.burger span:nth-child(2), .header nav a.burger span:nth-child(3) {
-          top: 11px; }
+          top: 12px; }
         .header nav a.burger span:last-child {
-          top: 18px; }
+          top: 19px; }
 
 .subheader {
   display: -webkit-box;
@@ -2755,6 +2815,24 @@ fieldset {
   .subheader a {
     font-family: "museosans300", sans-serif; }
 
+.menu-mobile {
+  position: relative;
+  height: 100%;
+  width: 100%; }
+  .menu-mobile nav {
+    max-height: 100%;
+    padding-top: 10px;
+    overflow-y: auto; }
+    .menu-mobile nav ul li {
+      border-bottom: solid 1px #f3f3f3; }
+      .menu-mobile nav ul li a {
+        color: black;
+        font-size: 16px;
+        font-family: "museosans500", sans-serif;
+        line-height: 22px;
+        display: block;
+        padding: 10px 15px; }
+
 .footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2850,7 +2928,6 @@ fieldset {
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding-left: 48px;
   padding-right: 6px;
   margin-bottom: 18px; }
   @media (max-width: 1199px) {
@@ -3067,6 +3144,16 @@ fieldset {
           background: #f4fcff; }
 
 @media (max-width: 480px) {
+  .date-picker {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; } }
+
+@media (max-width: 480px) {
   .date-picker > *:last-child {
     margin-bottom: 0; } }
 
@@ -3082,7 +3169,8 @@ fieldset {
     @media (max-width: 480px) {
       .date-picker span.mob {
         display: block;
-        margin-bottom: 5px; } }
+        margin-bottom: 5px;
+        width: 40px; } }
 
 .date-picker input {
   color: black;
@@ -3166,6 +3254,13 @@ fieldset {
       font-size: 24px;
       line-height: 28px; } }
 
+.main-info > p {
+  color: black;
+  font-family: "museosans300", sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 15px; }
+
 .main-info > ul {
   display: -webkit-box;
   display: -webkit-flex;
@@ -3199,6 +3294,44 @@ fieldset {
       @media (max-width: 767px) {
         .main-info > ul > li:last-child {
           margin-bottom: 10px; } }
+
+.main-info > ol {
+  list-style: none;
+  counter-reset: li; }
+  .main-info > ol li {
+    color: black;
+    font-family: "museosans300", sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    text-indent: 20px;
+    margin-bottom: 20px; }
+    .main-info > ol li span, .main-info > ol li p {
+      color: inherit;
+      font-size: inherit;
+      font-family: inherit;
+      line-height: inherit;
+      letter-spacing: inherit; }
+    .main-info > ol li span {
+      text-indent: 0; }
+    .main-info > ol li a {
+      color: #4489ff;
+      font-size: inherit;
+      font-family: inherit;
+      line-height: inherit;
+      letter-spacing: inherit;
+      text-decoration: underline; }
+      .main-info > ol li a:hover {
+        text-decoration: none; }
+  .main-info > ol > li:before {
+    counter-increment: li;
+    content: counters(li, ".") ". "; }
+  .main-info > ol > li ol, .main-info > ol > li ul {
+    padding-left: 20px;
+    margin-top: 10px; }
+    .main-info > ol > li ol li, .main-info > ol > li ul li {
+      margin-bottom: 10px; }
+  .main-info > ol > li ul li:before {
+    content: '- '; }
 
 .main-info table {
   width: 100%;
@@ -3252,10 +3385,16 @@ fieldset {
         min-width: 145px; }
       .main-info table tr td:nth-child(2) {
         width: 27.11864%;
-        min-width: 258px; }
+        min-width: 258px;
+        padding: 0; }
+        .main-info table tr td:nth-child(2) a {
+          padding: 25px 0 25px 20px; }
       .main-info table tr td:nth-child(3) {
         width: 27.9661%;
-        min-width: 266px; }
+        min-width: 266px;
+        padding: 0; }
+        .main-info table tr td:nth-child(3) a {
+          padding: 25px 0 25px 20px; }
       .main-info table tr td:nth-child(4) {
         width: 16.94915%;
         min-width: 161px; }
@@ -3277,10 +3416,6 @@ fieldset {
         font-family: inherit;
         line-height: inherit;
         letter-spacing: inherit;
-        padding-left: 20px;
-        position: absolute;
-        left: 0;
-        top: 0;
         width: 100%;
         height: 100%;
         display: -webkit-box;
@@ -3297,6 +3432,12 @@ fieldset {
         .main-info table tr td a:hover {
           color: #4489ff; }
 
+.main-info .totalSum {
+  color: black;
+  font-family: "museosans500", sans-serif;
+  font-size: 16px;
+  line-height: 22px; }
+
 .transactions-tabs-mobile {
   display: none;
   margin-top: -42px;
@@ -3310,16 +3451,16 @@ fieldset {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
-    .transactions-tabs-mobile ul li.active a {
+    .transactions-tabs-mobile ul li.active span {
       background: #f4f7fb;
       pointer-events: none; }
-    .transactions-tabs-mobile ul li a {
+    .transactions-tabs-mobile ul li span {
       color: black;
       font-family: "museosans500", sans-serif;
       font-size: 16px;
       display: block;
       padding: 18px 25px 16px; }
-      .transactions-tabs-mobile ul li a:hover {
+      .transactions-tabs-mobile ul li span:hover {
         text-decoration: underline; }
 
 .transactions-intro {
@@ -3341,6 +3482,21 @@ fieldset {
         .transactions-intro header h1 {
           font-size: 20px;
           line-height: 26px; } }
+    .transactions-intro header p {
+      color: #4489ff;
+      font-family: "museosans500", sans-serif;
+      font-size: 16px;
+      line-height: 18px;
+      letter-spacing: 0.05px;
+      margin-bottom: 13px; }
+      .transactions-intro header p a {
+        color: inherit;
+        font-size: inherit;
+        font-family: inherit;
+        line-height: inherit;
+        letter-spacing: inherit; }
+        .transactions-intro header p a:hover {
+          text-decoration: underline; }
   .transactions-intro section {
     display: -webkit-box;
     display: -webkit-flex;
@@ -3426,18 +3582,22 @@ fieldset {
             .transactions-intro section ul li p {
               font-size: 20px; } }
     .transactions-intro section > p {
-      color: black;
+      color: #89a1b3;
       font-family: "museosans500", sans-serif;
       font-size: 14px;
       line-height: 20px;
       letter-spacing: 0.03px;
       width: 100%;
-      padding-top: 11px;
       padding-right: 20px; }
       @media (max-width: 767px) {
         .transactions-intro section > p {
           padding-top: 0;
           padding-right: 0; } }
+      .transactions-intro section > p a {
+        color: #4489ff;
+        text-decoration: underline; }
+        .transactions-intro section > p a:hover {
+          text-decoration: none; }
 
 .transactions-info {
   display: -webkit-box;
@@ -3487,7 +3647,6 @@ fieldset {
         font-family: "museosans500", sans-serif;
         font-size: 36px;
         line-height: 42px;
-        padding-left: 13px;
         position: relative; }
         @media (max-width: 767px) {
           .transactions-info > div header p {
@@ -3500,7 +3659,7 @@ fieldset {
           width: 12px;
           height: 23px;
           position: absolute;
-          left: -43px;
+          left: -41px;
           top: 7px; }
           @media (max-width: 767px) {
             .transactions-info > div header p:before {
@@ -3543,7 +3702,7 @@ fieldset {
           width: 5px;
           height: 20px;
           position: absolute;
-          left: -36px;
+          left: -33px;
           top: 6px; }
           @media (max-width: 767px) {
             .transactions-info > div > ul > li > p:before {
@@ -3583,7 +3742,7 @@ fieldset {
     content: '';
     display: block;
     position: absolute;
-    left: -50px;
+    left: -48px;
     top: 19px;
     border-top: solid 20px #00bcff;
     border-left: solid 13px transparent;
@@ -3597,7 +3756,7 @@ fieldset {
     content: '';
     display: block;
     position: absolute;
-    left: -40px;
+    left: -37px;
     top: 21px;
     border-top: solid 10px #00bcff;
     border-left: solid 6.5px transparent;
@@ -3611,7 +3770,7 @@ fieldset {
     content: '';
     display: block;
     position: absolute;
-    left: -50px;
+    left: -48px;
     top: -2px;
     border-bottom: solid 20px #b068d2;
     border-left: solid 13px transparent;
@@ -3625,7 +3784,7 @@ fieldset {
     content: '';
     display: block;
     position: absolute;
-    left: -40px;
+    left: -37px;
     top: 1px;
     border-bottom: solid 10px #b068d2;
     border-left: solid 6.5px transparent;
@@ -3713,15 +3872,27 @@ fieldset {
 
 .fund-intro {
   padding-top: 25px; }
+  .fund-intro > *:last-child {
+    margin-bottom: 0; }
   .fund-intro h1 {
     color: white;
     font-family: "museosans500", sans-serif;
     font-size: 36px;
-    line-height: 42px; }
+    line-height: 42px;
+    margin-bottom: 10px; }
     @media (max-width: 767px) {
       .fund-intro h1 {
         font-size: 30px;
         line-height: 36px; } }
+  .fund-intro p {
+    color: white;
+    font-family: "museosans500", sans-serif;
+    font-size: 18px;
+    line-height: 25px; }
+    @media (max-width: 767px) {
+      .fund-intro p {
+        font-size: 16px;
+        line-height: 22px; } }
 
 .fund-progress > *:last-child {
   margin-bottom: 0; }
@@ -3803,94 +3974,175 @@ fieldset {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); }
     @media (max-width: 991px) {
       .fund-tab table {
-        display: block;
         overflow-x: auto; } }
-    .fund-tab table tr:hover {
-      background: #f3f3f3; }
-    .fund-tab table tr:last-child td {
-      border-bottom: none; }
-    .fund-tab table tr:first-child:hover {
-      background: none; }
-    .fund-tab table tr th {
-      color: black;
-      font-family: "museosans500", sans-serif;
-      font-size: 14px;
-      text-align: left;
-      padding: 10px 20px;
-      border-bottom: solid 1px #d8d8d8; }
-      @media (max-width: 991px) {
-        .fund-tab table tr th {
-          padding: 10px;
-          border-bottom: solid 1px #d8d8d8; } }
-      .fund-tab table tr th a {
+    .fund-tab table tr {
+      width: 100%; }
+      .fund-tab table tr:hover {
+        background: #f3f3f3; }
+      .fund-tab table tr:first-child:hover {
+        background: none; }
+      .fund-tab table tr:last-child td {
+        border-bottom: none; }
+      .fund-tab table tr th {
+        color: black;
+        font-family: "museosans500", sans-serif;
+        font-size: 14px;
+        text-align: left;
+        padding: 10px 20px;
+        border-bottom: solid 1px #d8d8d8; }
+        @media (max-width: 991px) {
+          .fund-tab table tr th {
+            padding: 10px;
+            border-bottom: solid 1px #d8d8d8; } }
+        .fund-tab table tr th:last-child {
+          text-align: right; }
+        .fund-tab table tr th ul {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex; }
+          @media (max-width: 480px) {
+            .fund-tab table tr th ul {
+              -webkit-box-orient: vertical;
+              -webkit-box-direction: normal;
+              -webkit-flex-direction: column;
+              -ms-flex-direction: column;
+              flex-direction: column; } }
+          .fund-tab table tr th ul li {
+            margin-right: 32px; }
+            @media (max-width: 480px) {
+              .fund-tab table tr th ul li {
+                margin-right: 0;
+                margin-bottom: 10px; } }
+            .fund-tab table tr th ul li:last-child {
+              margin-right: 0; }
+              @media (max-width: 480px) {
+                .fund-tab table tr th ul li:last-child {
+                  margin-bottom: 0; } }
+        .fund-tab table tr th a {
+          color: black;
+          font-family: "museosans500", sans-serif;
+          font-size: 16px;
+          line-height: 20px;
+          display: inline-block;
+          position: relative; }
+          @media (max-width: 480px) {
+            .fund-tab table tr th a {
+              margin-right: 0; } }
+          .fund-tab table tr th a:last-child {
+            margin-right: 0; }
+          .fund-tab table tr th a:hover {
+            color: #4489ff; }
+          .fund-tab table tr th a.active {
+            pointer-events: none; }
+            .fund-tab table tr th a.active:after {
+              content: '';
+              display: block;
+              width: 100%;
+              height: 3px;
+              position: absolute;
+              left: 0;
+              bottom: -5px;
+              background: #4489ff; }
+              @media (max-width: 480px) {
+                .fund-tab table tr th a.active:after {
+                  bottom: -3px; } }
+      .fund-tab table tr td {
         color: black;
         font-family: "museosans500", sans-serif;
         font-size: 16px;
-        line-height: 20px;
-        display: inline-block;
-        margin-right: 32px;
-        opacity: 0.3; }
-        .fund-tab table tr th a:last-child {
-          margin-right: 0; }
-        .fund-tab table tr th a:hover {
-          opacity: 0.7; }
-        .fund-tab table tr th a.active {
-          opacity: 1;
-          pointer-events: none; }
-    .fund-tab table tr td {
-      color: black;
-      font-family: "museosans500", sans-serif;
-      font-size: 16px;
-      padding: 25px 0 25px 20px;
-      vertical-align: middle;
-      position: relative;
-      border-bottom: solid 1px #d8d8d8; }
-      @media (max-width: 991px) {
-        .fund-tab table tr td {
-          padding: 10px 0 10px 10px; } }
-      .fund-tab table tr td:first-child {
-        padding-right: 30px;
-        min-width: 780px; }
-      .fund-tab table tr td:last-child {
-        -webkit-flex-shrink: 0;
-        -ms-flex-negative: 0;
-        flex-shrink: 0;
-        width: 17.9%;
-        min-width: 170px; }
-      .fund-tab table tr td a {
-        font-size: inherit;
-        font-family: inherit;
-        letter-spacing: inherit;
-        position: absolute;
-        padding-left: 20px;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
-        align-items: center; }
-        @media (max-width: 1199px) {
-          .fund-tab table tr td a {
-            padding-left: 10px; } }
-        .fund-tab table tr td a:hover {
-          color: #4489ff; }
+        vertical-align: middle;
+        position: relative;
+        border-bottom: solid 1px #d8d8d8; }
+        @media (max-width: 767px) {
+          .fund-tab table tr td {
+            font-size: 14px; } }
+        @media (max-width: 991px) {
+          .fund-tab table tr td:first-child {
+            width: 70%; } }
+        @media (max-width: 767px) {
+          .fund-tab table tr td:first-child {
+            width: 60%; } }
+        @media (max-width: 480px) {
+          .fund-tab table tr td:first-child {
+            width: 50%; } }
+        .fund-tab table tr td:last-child {
+          text-align: right;
+          -webkit-flex-shrink: 0;
+          -ms-flex-negative: 0;
+          flex-shrink: 0;
+          width: 17.9%;
+          padding: 25px 20px 25px; }
+          @media (max-width: 991px) {
+            .fund-tab table tr td:last-child {
+              width: 30%;
+              padding: 10px; } }
+          @media (max-width: 767px) {
+            .fund-tab table tr td:last-child {
+              width: 40%; } }
+          @media (max-width: 480px) {
+            .fund-tab table tr td:last-child {
+              width: 50%; } }
+        .fund-tab table tr td a {
+          color: inherit;
+          font-size: inherit;
+          font-family: inherit;
+          letter-spacing: inherit;
+          padding: 25px 10px 25px 20px;
+          width: 100%;
+          display: block; }
+          @media (max-width: 1199px) {
+            .fund-tab table tr td a {
+              padding-left: 10px; } }
+          .fund-tab table tr td a:hover {
+            color: #4489ff; }
+
+.vdp-datepicker {
+  display: inline-block; }
+  @media (max-width: 480px) {
+    .vdp-datepicker {
+      width: -webkit-calc(100% - 40px);
+      width: calc(100% - 40px); } }
+  @media (max-width: 480px) {
+    .vdp-datepicker__calendar {
+      right: 0; } }
 
 .app {
   min-width: 320px;
+  padding-top: 63px;
   overflow-x: hidden;
   background: #ffffff; }
-  .app > header {
-    position: relative;
-    z-index: 10; }
   .app .wr-header {
-    padding: 8px 0 13px;
-    background: white; }
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); }
+  .app .wr-menu-mobile {
+    padding-top: 63px;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 900;
+    -webkit-transform: translateX(110%);
+    -ms-transform: translateX(110%);
+    transform: translateX(110%);
+    background: #ffffff;
+    -webkit-transition: 0.5s ease-out;
+    transition: 0.5s ease-out; }
+    @media (max-width: 767px) {
+      .app .wr-menu-mobile {
+        display: block; } }
+    .app .wr-menu-mobile.active {
+      -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0); }
   .app .wr-subheader {
     padding: 14px 0 10px;
     background: #4489ff;
@@ -3899,9 +4151,12 @@ fieldset {
   .app .wr-filter {
     padding: 35px 0 59px;
     background: white; }
+    @media (max-width: 767px) {
+      .app .wr-filter {
+        padding: 30px 0 10px; } }
   .app .wr-main-intro {
-    min-height: -webkit-calc(100vh - 142px - 97px);
-    min-height: calc(100vh - 142px - 97px);
+    min-height: -webkit-calc(100vh - 63px - 76px);
+    min-height: calc(100vh - 63px - 76px);
     padding: 72px 0 9px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -3919,10 +4174,15 @@ fieldset {
     background-size: 100% auto;
     -webkit-transition: 0.3s ease-out;
     transition: 0.3s ease-out; }
+    @media (max-width: 767px) {
+      .app .wr-main-intro {
+        background-size: cover; } }
     .app .wr-main-intro.active {
       min-height: 460px; }
   .app .wr-main-info {
     padding: 74px 0 63px;
+    min-height: -webkit-calc(100vh - 63px - 76px);
+    min-height: calc(100vh - 63px - 76px);
     background: #f4f7fb; }
   .app .wr-transactions-intro {
     padding: 40px 0 71px;
@@ -3938,15 +4198,23 @@ fieldset {
     padding: 40px 0 32px;
     background: #4489ff url("../img/line-chart.svg") 50% 20% no-repeat;
     background-size: 100% auto; }
+    @media (max-width: 767px) {
+      .app .wr-fund-intro {
+        background-size: cover; } }
   .app .wr-fund-info {
     padding: 28px 0 10px;
     background: white; }
+    @media (max-width: 767px) {
+      .app .wr-fund-info {
+        padding: 20px 0 10px; } }
   .app .wr-fund-tabs {
     padding: 21px 0 0;
     background: white; }
   .app .wr-funds {
     padding: 67px 0 51px;
+    min-height: -webkit-calc(100vh - 63px - 76px);
+    min-height: calc(100vh - 63px - 76px);
     background: #f4f7fb; }
   .app .wr-footer {
-    padding: 38px 0 33px;
+    padding: 25px 0 25px;
     background: white; }

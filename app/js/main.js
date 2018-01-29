@@ -10,15 +10,7 @@ $(document).ready(function() {
 	});
 
 	// Табы на странице транзакций на мобильной версии
-	$('.js-transaction-tabs a').click(function(e) {
-		e.preventDefault();
-
-		var transactionTab = $(this).attr('href');
-		$('.js-transaction-tabs li.active').removeClass('active');
-		$(this).parent().addClass('active');
-		$('.transaction-tab').removeClass('active');
-		$('.transaction-tab' + transactionTab).addClass('active');
-	});
+	transactionsTab();
 
 	// Выпадающие списки
 	$('.js-select > a').click(function(e) {
@@ -27,6 +19,15 @@ $(document).ready(function() {
 			$('.js-select > a, .js-select > ul').removeClass('active');
 		}
 		$(this).toggleClass('active').next().toggleClass('active');
+	});
+
+	// вызов меню мобильной версии
+	$('.js-burger').click(function(e) {
+		e.preventDefault();
+
+		$(this).toggleClass('active');
+		$('.wr-menu-mobile').toggleClass('active');
+		$('body').toggleClass('on-load');
 	});
 });
 
@@ -40,34 +41,44 @@ $(document).mouseup(function (e) {
 	} 
 });
 
-$( function() {
-	var dateFormat = "mm/dd/yy",
-	from = $( "#from" )
-	.datepicker({
-		defaultDate: "+1w",
-		changeMonth: true,
-		numberOfMonths: 1
-	})
-	.on( "change", function() {
-		to.datepicker( "option", "minDate", getDate( this ) );
-	}),
-	to = $( "#to" ).datepicker({
-		defaultDate: "+1w",
-		changeMonth: true,
-		numberOfMonths: 1
-	})
-	.on( "change", function() {
-		from.datepicker( "option", "maxDate", getDate( this ) );
+// $( function() {
+// 	var dateFormat = "mm/dd/yy",
+// 	from = $( "#from" )
+// 	.datepicker({
+// 		defaultDate: "+1w",
+// 		changeMonth: true,
+// 		numberOfMonths: 1
+// 	})
+// 	.on( "change", function() {
+// 		to.datepicker( "option", "minDate", getDate( this ) );
+// 	}),
+// 	to = $( "#to" ).datepicker({
+// 		defaultDate: "+1w",
+// 		changeMonth: true,
+// 		numberOfMonths: 1
+// 	})
+// 	.on( "change", function() {
+// 		from.datepicker( "option", "maxDate", getDate( this ) );
+// 	});
+
+// 	function getDate( element ) {
+// 		var date;
+// 		try {
+// 			date = $.datepicker.parseDate( dateFormat, element.value );
+// 		} catch( error ) {
+// 			date = null;
+// 		}
+
+// 		return date;
+// 	}
+// } );
+
+function transactionsTab() {
+	$('.js-transaction-tabs span').click(function() {
+		var transactionTab = $(this).data('class');
+		$('.js-transaction-tabs li.active').removeClass('active');
+		$(this).parent().addClass('active');
+		$('.transaction-tab').removeClass('active');
+		$('.transaction-tab' + transactionTab).addClass('active');
 	});
-
-	function getDate( element ) {
-		var date;
-		try {
-			date = $.datepicker.parseDate( dateFormat, element.value );
-		} catch( error ) {
-			date = null;
-		}
-
-		return date;
-	}
-} );
+}
